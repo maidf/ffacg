@@ -1,7 +1,7 @@
 <template>
     <el-menu :router="true" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false"
         @select="handleSelectMenu">
-        <el-menu-item index="1">
+        <el-menu-item index="/home">
             <el-icon>
                 <IconEpHouse />
             </el-icon>
