@@ -1,0 +1,21 @@
+
+services:
+  postgre:
+    image: postgres:latest
+    shm_size: 128mb
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=123
+      
+  mysql:
+    image: mysql:9.4
+    environment:
+      - MYSQL_ROOT_PASSWORD=123
+    ports:
+      - 3306:3306
+      
+  adminer:
+    image: adminer
+    ports:
+      - 9911:8080

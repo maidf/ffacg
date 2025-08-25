@@ -1,0 +1,12 @@
+{
+  "db_name": "MySQL",
+  "query": "insert into t_user(id, account, name, pass) values(?, ?, ?, ?)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 4
+    },
+    "nullable": []
+  },
+  "hash": "b85794ff8a0dd85ade8712709b2b44977086d368d2baf49053ce4611bf8c02fd"
+}
