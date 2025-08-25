@@ -484,7 +484,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "ffacg"
+name = "ffacg-rust"
 version = "0.1.0"
 dependencies = [
  "axum",
