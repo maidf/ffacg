@@ -9,8 +9,7 @@ export const useAnimeStore = defineStore("anime", () => {
         })
         if (res.data.status === 'OK') {
             let arr = res.data.resources as Anime[]
-            let uuid = 0;
-            const r = arr.map((v) => ({ ...v, id: (uuid++).toString() }))
+            const r = arr.map((v) => ({ ...v }))
             return r as Anime[]
         }
     }
@@ -50,5 +49,5 @@ export interface AnimeHistory {
 export interface AnimeMask {
     id: string
     anime: Anime
-    group: string
+    group_name: string
 }
