@@ -1,15 +1,6 @@
 <template>
     <div v-if="animes">
-        <el-card class="mycard" shadow="hover" v-for="item in animes" :key="item.id" :header="item.title">
-            <span v-if="item.publisher">发布者:{{ item.publisher.name }}</span> <br>
-            <span v-if="item.fansub">字幕组:{{ item.fansub.name }}</span> <br>
-            <span v-if="item.size / 1024 > 1024">大小:{{ (item.size / 1024 / 1024).toFixed(1) }}GB</span>
-            <span v-else>大小:{{ (item.size / 1024).toFixed(1) }}MB</span>
-            <template #footer>
-                <el-button type="success">下载</el-button>
-                <el-button type="primary">播放</el-button>
-            </template>
-        </el-card>
+        <anime-card v-for="(item, index) in animes" :key="index" :anime="item"></anime-card>
         <div class="mypageblock">
             <el-pagination class="mypage" background layout="prev, pager, next, jumper" :page-count="100"
                 v-model:current-page="current_page" @current-change="current_change" />
@@ -26,7 +17,8 @@
 
 <script lang="ts" setup>
 import { type Anime, useAnimeStore } from '@/stores/anime'
-import { fa, tr } from 'element-plus/es/locales.mjs'
+
+// 动漫加载
 const animes = ref<Anime[] | null>(null)
 const current_page = ref(1)
 
@@ -53,39 +45,13 @@ onMounted(async () => {
     loading.value = false
 })
 
+
 watch(animes, () => {
 
 })
 </script>
 
 <style scoped lang="scss">
-.mycard {
-    width: 300px;
-    min-height: 300px;
-    // margin-left: 12px;
-    // margin-right: 12px;
-    margin: 10px;
-    box-sizing: 300px;
-    border: 2px pink solid;
-    overflow: hidden;
-
-    display: inline-flex;
-    flex-direction: column;
-
-    :deep(.el-card__body) {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    :deep(.el-card__footer) {
-        flex-shrink: 0;
-        padding: 10px;
-        text-align: center;
-        border-top: 1px solid #eee;
-        background-color: #f9f9f9;
-    }
-}
 
 .mypage {
     display: inline-flex;
